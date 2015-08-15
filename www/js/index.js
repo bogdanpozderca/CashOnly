@@ -19,8 +19,9 @@
 
 Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
 
-
 $( document ).ready(function() {
+
+	var refreshIntervalID = setInterval(updateUserLocation, 10000);
 
     $("#signup-form").submit(function() {
         var user = new Parse.User();
@@ -30,7 +31,7 @@ $( document ).ready(function() {
           
         user.signUp(null, {
           success: function(user) {
-            
+            console.log("User signed up:"+user);
           }
         });   
 
@@ -41,10 +42,42 @@ $( document ).ready(function() {
         e.preventDefault();
         Parse.User.logIn($('#username').val(), $('#pass').val(), {
           success: function(user) {
-            alert(user)
+            console.log("User logged in:"+user);
           }
         });   
     });
+
+    $("#stop-location-tracking").click(function(e) {
+    	alert("User stopped location tracking");
+    	clearInterval(refreshIntervalID);
+    });
+
+    function updateUserLocation() {
+		Parse.GeoPoint.current({
+		    success: function (point) {
+		        //use current location
+		        console.log("Point found:"+point);
+		        currentUser = Parse.User.current();
+		        if (currentUser) {
+			        currentUser.set("location", point);
+			        currentUser.save(null, {
+			    		success:function(object) {
+			      			console.log("Saved the location to the user object!");
+			    		}, 
+			    		error:function(object,error) {
+			      			console.dir(error);
+			    		}
+			  		});
+		    	} else {
+		    		console.log("There is no user logged in, so the location was not saved");
+		    	}
+		    },
+		    error: function (error) {
+		    	console.dir("Error:"+error);
+		    }
+		});
+	}
+    
 });
 
 
