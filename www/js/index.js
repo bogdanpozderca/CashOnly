@@ -16,34 +16,76 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
 
-        console.log('Received Event: ' + id);
-    }
-};
+
+
+
+$("#signup-form").submit(function() {
+    var user = new Parse.User();
+    user.set("username", $('#user').val());
+    user.set("password", $('#password').val());
+    user.set("email", $('#email').val());
+      
+    user.signUp(null, {
+      success: function(user) {
+        
+      }
+    });   
+
+    return false; // avoid to execute the actual submit of the form.
+});
+
+
+
+
+
+// var app = {
+//     // Application Constructor
+//     initialize: function() {
+//         this.bindEvents();
+//     },
+//     // Bind Event Listeners
+//     //
+//     // Bind any events that are required on startup. Common events are:
+//     // 'load', 'deviceready', 'offline', and 'online'.
+//     bindEvents: function() {
+//         document.addEventListener('deviceready', this.onDeviceReady, false);
+//     },
+//     // deviceready Event Handler
+//     //
+//     // The scope of 'this' is the event. In order to call the 'receivedEvent'
+//     // function, we must explicitly call 'app.receivedEvent(...);'
+//     onDeviceReady: function() {
+//         app.receivedEvent('deviceready');
+//     Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
+
+//     var user = new Parse.User();
+//     user.set("username", "bogdanfromphone");
+//     user.set("password", "mypass");
+//     user.set("email", "bogdanpozdersca@gmail.com");
+      
+//     user.signUp(null, {
+//       success: function(user) {
+//         alert("yessss");
+//       },
+//       error: function(user, error) {
+//         // Show the error message somewhere and let the user try again.
+//         alert("Error: " + error.code + " " + error.message);
+//       }
+//     });   
+
+//     },
+//     // Update DOM on a Received Event
+//     receivedEvent: function(id) {
+//         var parentElement = document.getElementById(id);
+//         var listeningElement = parentElement.querySelector('.listening');
+//         var receivedElement = parentElement.querySelector('.received');
+
+//         listeningElement.setAttribute('style', 'display:none;');
+//         receivedElement.setAttribute('style', 'display:block;');
+
+//         console.log('Received Events: ' + id);
+//     }
+// };

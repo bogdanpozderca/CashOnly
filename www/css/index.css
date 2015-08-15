@@ -1,115 +1,141 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-}
-
 body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    text-transform:uppercase;
-    width:100%;
+    background-color: #452463; 
 }
 
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+.page {
+    width: 100%;
+    height: 97vh;
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+#home {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: space-between;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+.front {
+    align-self:flex-end;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    width: 47%;
+    margin-bottom: 2%;
+    border-style: none;
+    border-radius: 5px;
+    height: 8vh;
+    font-size: 24px;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+#login-button {
+    background-color: #602F89;
+    margin-right: 2%;
 }
 
-.event.listening {
-    background-color:#333333;
-    display:block;
+#signup-button {
+    background-color: #7E53A2;
+    margin-left: 2%;
 }
 
-.event.received {
-    background-color:#4B946A;
-    display:none;
+#title-logo {
+    align-self: center;
+    text-align: center;
+    font-size: 100%;
+    color: white;
+    width: 103%;
 }
 
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+#title-wrapper {
+    background-color: #602F89;
+    padding-top: 3%;
+    height: 10vh;
+    display: flex;
+    align-items:center;
+    margin-top: -3%;
 }
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+
+#title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: left;
+    padding-left: 5%;
+    font-family: 'Raleway', sans-serif;
 }
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+
+#logo {
+    padding-top: 30%;
+    width: 30%;
 }
+
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+.box {
+    margin-top: 2px;
+    padding: 4%;
+    font-size: 20px;
+    border-style: none;
+    border-radius: 3px;
+
+}
+
+#signup-button-confirm {
+    margin-top: 5%;
+    background-color: #7E53A2;
+    border-style: none;
+    border-radius: 5px;
+    height: 8vh;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 160%;
+    color: white;
+
+}
+
+#login-button-confirm {
+    margin-top: 5%;
+    background-color: #602F89;
+    border-style: none;
+    border-radius: 5px;
+    height: 8vh;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 160%;
+    color: white;
+
+}
+
+  ::-webkit-input-placeholder {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-family: 'Raleway', sans-serif;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    font-family: 'Raleway', sans-serif;
+  }
+
+  :-ms-input-placeholder { 
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .fa {
+    color: white;
+    font-size: 25px;
+    padding-bottom: 2%;
+  }
+
+
+
+

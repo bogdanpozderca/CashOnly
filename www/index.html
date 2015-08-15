@@ -26,17 +26,45 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div id="home" class="page">
+            <div id="title-logo">
+                <div id="title-wrapper"><h1 id="title">CashOnly</h1></div>
+                <img id="logo" src="img/logo.svg">
+            </div>
+            
+            <div>
+                <button class="front" id="signup-button" onclick="$('#signup').fadeIn('slow'); $('#home').fadeOut('slow');">Sign up</button>
+                <button class="front" id="login-button" onclick="$('#login').fadeIn('slow'); $('#home').fadeOut('slow');">Log in</button>
             </div>
         </div>
+        <div id="signup" style="display:none" class="page">
+            <form id="signup-form" action="" method="post"> 
+              <i class="fa fa-times" onclick="$('#home').fadeIn('slow'); $('#signup').fadeOut('slow');"></i>
+              <input type="text" id="user" class="box" name="user_name" placeholder="username">
+              <input type="email" id="email" class="box" name="user_email" placeholder="email">
+              <input type="password" id="password" class="box" name="user_password" placeholder="password">
+                
+                <button type="submit" id="signup-button-confirm">Sign Up</button>
+            </form>
+        </div>
+        <div id="login" style="display:none" class="page">
+            <form id="login-form" action="" method="post"> 
+              <i class="fa fa-times" onclick="$('#home').fadeIn('slow'); $('#login').fadeOut('slow');"></i>
+              <input type="text" id="user" class="box" name="user_name" placeholder="username">
+              <input type="password" id="password" class="box" name="user_password" placeholder="password">
+                
+                <button type="submit" id="login-button-confirm">Log in</button>
+            </form>
+        </div>
+
+        <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
