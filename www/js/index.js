@@ -20,24 +20,32 @@
 Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
 
 
+$( document ).ready(function() {
 
+    $("#signup-form").submit(function() {
+        var user = new Parse.User();
+        user.set("username", $('#user').val());
+        user.set("password", $('#password').val());
+        user.set("email", $('#email').val());
+          
+        user.signUp(null, {
+          success: function(user) {
+            
+          }
+        });   
 
-$("#signup-form").submit(function() {
-    var user = new Parse.User();
-    user.set("username", $('#user').val());
-    user.set("password", $('#password').val());
-    user.set("email", $('#email').val());
-      
-    user.signUp(null, {
-      success: function(user) {
-        
-      }
-    });   
+        return false; // avoid to execute the actual submit of the form.
+    });
 
-    return false; // avoid to execute the actual submit of the form.
+    $("#login-form").submit(function(e) {      
+        e.preventDefault();
+        Parse.User.logIn($('#username').val(), $('#pass').val(), {
+          success: function(user) {
+            alert(user)
+          }
+        });   
+    });
 });
-
-
 
 
 

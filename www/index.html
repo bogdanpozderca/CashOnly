@@ -56,19 +56,17 @@
         <div id="login" style="display:none" class="page">
             <form id="login-form" action="" method="post"> 
               <i class="fa fa-times" onclick="$('#home').fadeIn('slow'); $('#login').fadeOut('slow');"></i>
-              <input type="text" id="user" class="box" name="user_name" placeholder="username">
-              <input type="password" id="password" class="box" name="user_password" placeholder="password">
+              <input type="text" id="username" class="box" name="username" placeholder="username">
+              <input type="password" id="pass" class="box" name="password" placeholder="password">
                 
                 <button type="submit" id="login-button-confirm">Log in</button>
-            </form>
+            </form>        
         </div>
+        <div></div>
 
         <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
