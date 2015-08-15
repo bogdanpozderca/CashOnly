@@ -114,47 +114,103 @@ body {
 
 }
 
-#menu-wrapper {
-    background-color: #602F89;
-    padding-top: 3%;
-    height: 8vh;
-    width: 103%;
-    display: flex;
-    align-items:center;
-    margin-top: -3%;
-    margin-left: -1%;
-}
 
-#menu-icon {
-    padding-left: 6%;
-    width: 20%;
-}
 
 a:click {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-  ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
     font-family: 'Raleway', sans-serif;
-  }
+}
 
-  :-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder { /* Firefox 18- */
     font-family: 'Raleway', sans-serif;
-  }
+}
 
-  ::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  /* Firefox 19+ */
     font-family: 'Raleway', sans-serif;
-  }
+}
 
-  :-ms-input-placeholder { 
+:-ms-input-placeholder { 
     font-family: 'Raleway', sans-serif;
-  }
+}
 
-  .fa {
-    color: white;
-    font-size: 25px;
-    padding-bottom: 2%;
-  }
+.accordion {
+  margin-top: -3%;
+  background: #602F89;
+}
+
+.link {
+  display flex;
+  flex-direction:row;
+  align-items:center;
+  height: 8vh;
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  color: white;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+#text {
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+
+.accordion div:last-child .link { border-bottom: 0; }
+
+.accordion div i {
+  font-size: 24px;
+  color: #white;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.accordion div i.fa-chevron-down {
+  font-size: 20px;
+  color: white;
+}
+
+.accordion div.open .link { color: white; }
+
+.accordion div.open i { color: white; }
+
+.accordion div.open i.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/**
+ * Submenu
+ -----------------------------*/
+
+
+.submenu {
+  display: none;
+  background: #7E53A2;
+  height: 12vh;
+  font-size: 14px;
+}
+
+.submenu div { border-bottom: 1px solid #7E53A2; }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
