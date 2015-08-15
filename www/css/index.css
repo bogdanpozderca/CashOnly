@@ -114,6 +114,26 @@ body {
 
 }
 
+#menu-wrapper {
+    background-color: #602F89;
+    padding-top: 3%;
+    height: 8vh;
+    width: 103%;
+    display: flex;
+    align-items:center;
+    margin-top: -3%;
+    margin-left: -1%;
+}
+
+#menu-icon {
+    padding-left: 6%;
+    width: 20%;
+}
+
+a:click {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
   ::-webkit-input-placeholder {
     font-family: 'Raleway', sans-serif;
   }

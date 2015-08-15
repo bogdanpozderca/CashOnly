@@ -28,6 +28,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/sidrdark.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         
     </head>
@@ -61,13 +62,20 @@
                 
                 <button type="submit" id="login-button-confirm">Log in</button>
             </form>        
-        </div>
-        <div>
-            <button type="submit" id="stop-location-tracking">Stop Location Tracking</button>
+        </div>           
+
+        <div id="logged-in" style="display:none" class="page">
+            <div id="menu-wrapper"><a id="simple-menu" href="#sidr"><img id="menu-icon" src="img/menu.svg"></a></div>
+            
+            <div id="sidr">
+                 <button type="submit" id="stop-location-tracking">Stop Location Tracking</button>
+                <div id="logout" href="#">Log out</div>
+            </div>
         </div>
 
         <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/jquerysidr.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

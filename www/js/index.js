@@ -18,8 +18,15 @@
  */
 
 Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
+var currentUser = Parse.User.current();
+
+if (currentUser) {
+    $('#home').css('display','none');
+    $('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
+} 
 
 $( document ).ready(function() {
+    $('#simple-menu').sidr();
 
 	var refreshIntervalID = setInterval(updateUserLocation, 10000);
 
@@ -43,6 +50,7 @@ $( document ).ready(function() {
         Parse.User.logIn($('#username').val(), $('#pass').val(), {
           success: function(user) {
             console.log("User logged in:"+user);
+            $('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
           }
         });   
     });
@@ -78,6 +86,12 @@ $( document ).ready(function() {
 		});
 	}
     
+    $("#logout").click(function(){
+        Parse.User.logOut();
+        $('#simple-menu').sidr();
+        $('#logged-in').fadeOut('slow'); $('#home').fadeIn('slow');
+        
+    });
 });
 
 
