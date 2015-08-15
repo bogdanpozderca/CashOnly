@@ -18,16 +18,19 @@
  */
 
 Parse.initialize("79WMBmLHWvbRJPpomUQHACaGQCJhHfqxfrTSIYUH", "dsUYSxbSyxHf1aQwQm9MaGFQBZHxB8ANOVmNbG6F");
-var currentUser = Parse.User.current();
-
-if (currentUser) {
-    $('#home').css('display','none');
-    $('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
-} 
 
 $( document ).ready(function() {
 
-	var refreshIntervalID = setInterval(updateUserLocation, 10000);
+	var currentUser = Parse.User.current();
+	var refreshIntervalID = null;
+
+	if (currentUser) {
+    	$('#home').css('display','none');
+    	$('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
+    	refreshIntervalID = setInterval(updateUserLocation, 10000);
+	}
+	 
+    $('#simple-menu').sidr();
 
     $("#signup-form").submit(function() {
         var user = new Parse.User();
@@ -38,6 +41,7 @@ $( document ).ready(function() {
         user.signUp(null, {
           success: function(user) {
             console.log("User signed up:"+user);
+            refreshIntervalID = setInterval(updateUserLocation, 10000);
           }
         });   
 
@@ -50,6 +54,7 @@ $( document ).ready(function() {
           success: function(user) {
             console.log("User logged in:"+user);
             $('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
+            refreshIntervalID = setInterval(updateUserLocation, 10000);
           }
         });   
     });
@@ -89,7 +94,7 @@ $( document ).ready(function() {
         Parse.User.logOut();
         $('#simple-menu').sidr();
         $('#logged-in').fadeOut('slow'); $('#home').fadeIn('slow');
-        
+        clearInterval(refreshIntervalID);
     });
 
     $(function() {
