@@ -3,8 +3,9 @@ body {
 }
 
 .page {
-    width: 100%;
-    height: 97vh;
+    width: 104%;
+    margin-left:-1.7%;
+    height: 99vh;
 }
 
 #home {
@@ -114,6 +115,11 @@ body {
 
 }
 
+.fa {
+    color: white;
+    font-size: 30px;
+}
+
 
 
 a:click {
@@ -142,9 +148,6 @@ a:click {
 }
 
 .link {
-  display flex;
-  flex-direction:row;
-  align-items:center;
   height: 8vh;
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
@@ -155,11 +158,13 @@ a:click {
 }
 
 #text {
+    position: absolute;
+    top: 8px;
+    left: 15px;
     padding: 0px;
     margin: 0px;
     
 }
-
 
 .accordion div:last-child .link { border-bottom: 0; }
 
@@ -172,6 +177,9 @@ a:click {
 }
 
 .accordion div i.fa-chevron-down {
+  position: absolute;
+  right:15px;
+  top: 15px;
   font-size: 20px;
   color: white;
 }
@@ -201,22 +209,68 @@ a:click {
 
 .submenu div { border-bottom: 1px solid #7E53A2; }
 
+#logged-in {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#logged-in div {
+    text-align: center;
+}
+
 #request-cash {
     padding: 4%;
     font-size: 20px;
-    margin-top: 5%;
+    margin-mottom: -12%;
     background-color: #602F89;
     border-style: none;
+    text-align: center;
     height: 8vh;
     width: 100%;
-    text-align: center;
-    display: flex;
-    align-self: flex-end;
     font-family: 'Raleway', sans-serif;
     font-size: 160%;
     color: white;
 }
 
+#cash-request-page i{
+    position: absolute;
+    right: 15px;
+}
+
+#cash-request-page {
+    display: inline-block;
+    align-items:center;
+}
+
+#dollar {
+    font-size: 100px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    width: 100px;
+    padding: 0px;
+    padding-right: 15px;
+    margin-left: 45px;
+}
+
+.text-box {
+    width: 60%;
+    padding: 4%;
+    font-family: 'Raleway', sans-serif;
+    background-color: #7E53A2;
+    border:none;
+    color: white;
+    font-size: 100px;
+}
+
+.request{
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
 
 
 

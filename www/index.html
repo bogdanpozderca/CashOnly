@@ -73,22 +73,25 @@
                     </div>
                     <div class="submenu">
                       <button type="submit" id="stop-location-tracking">Stop Location Tracking</button>
-                      <div id="logout" href="#">Log out</div>
+                      <div id="logout" >Log out</div>
                   </div>
                 </div>
             </div>
-            <button type="submit" id="request-cash">Request Cash</div>
+            <div><button type="submit" id="request-cash" class="init-request">Request Cash</button></div>
         </div>
 
-<!--         <div id="cash-request-page" class="page">
-            <div>
-                <button class="front" id="signup-button" onclick="$('#signup').fadeIn('slow'); $('#home').fadeOut('slow');">Sign up</button>
-            </div>
+        <div id="cash-request-page" style="display:none" class="page">
+            <i class="fa fa-times" onclick="$('#logged-in').fadeIn('slow'); $('#cash-request-page').fadeOut('slow');"></i>
+            <div id="dollar">$</div>
+            <form id="money-form">
+                <input type="text" class="text-box" >
+                <button type="submit" id="request-cash" style="display:none" class="request">Confirm Request</button>
+            </form>
+
         </div>
- -->
+
         <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="js/jquerysidr.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

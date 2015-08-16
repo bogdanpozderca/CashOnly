@@ -27,10 +27,9 @@ $( document ).ready(function() {
 	if (currentUser) {
     	$('#home').css('display','none');
     	$('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
+        $('#logged-in').css('display', 'flex')
     	refreshIntervalID = setInterval(updateUserLocation, 10000);
 	}
-	 
-    $('#simple-menu').sidr();
 
     $("#signup-form").submit(function() {
         var user = new Parse.User();
@@ -54,9 +53,17 @@ $( document ).ready(function() {
           success: function(user) {
             console.log("User logged in:"+user);
             $('#logged-in').fadeIn('slow'); $('#login').fadeOut('slow');
+            $('#logged-in').css('display', 'flex')
+
             refreshIntervalID = setInterval(updateUserLocation, 10000);
           }
         });   
+    });
+
+    $('#request-cash').click(function(){
+        $('#cash-request-page').fadeIn('slow'); 
+        $('#logged-in').fadeOut('slow');
+        $('#cash-request-page').css('display', 'flex');
     });
 
     $("#stop-location-tracking").click(function(e) {
@@ -92,7 +99,6 @@ $( document ).ready(function() {
     
     $("#logout").click(function(){
         Parse.User.logOut();
-        $('#simple-menu').sidr();
         $('#logged-in').fadeOut('slow'); $('#home').fadeIn('slow');
         clearInterval(refreshIntervalID);
     });
@@ -123,6 +129,26 @@ $( document ).ready(function() {
 
         var accordion = new Accordion($('#accordion'), false);
     });    
+
+    $('.text-box').keydown(function(){
+        $(".request").fadeIn('slow');
+    })
+
+    $(".request").click(function(){
+        $('.init-request').html('Request Received');
+        $('.init-request').css('background-color', 'red');
+
+        setTimeout(function(){
+            $('.init-request').fadeOut('slow', function(){
+                $('.init-request').html('Request Cash');
+                $('.init-request').css('background-color', '#602F89');
+                $('.init-request').fadeIn('slow');
+            });
+            
+        }, 3000);
+        
+        $('#logged-in').fadeIn('slow'); $('#cash-request-page').fadeOut('slow');
+    })
 
 
 });
