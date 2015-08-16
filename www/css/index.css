@@ -201,7 +201,21 @@ a:click {
 
 .submenu div { border-bottom: 1px solid #7E53A2; }
 
-
+#request-cash {
+    padding: 4%;
+    font-size: 20px;
+    margin-top: 5%;
+    background-color: #602F89;
+    border-style: none;
+    height: 8vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-self: flex-end;
+    font-family: 'Raleway', sans-serif;
+    font-size: 160%;
+    color: white;
+}
 
 
 
